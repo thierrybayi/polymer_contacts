@@ -1,0 +1,6 @@
+name: polymer_contacts
+author: Thierry Bayi
+description: A sample web application ti handle contacts, using polymer.
+dependencies:
+  browser: any
+  polymer: any

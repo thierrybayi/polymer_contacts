@@ -1,0 +1,46 @@
+#webui links
+
+https://groups.google.com/a/dartlang.org/forum/?fromgroups#!forum/web-ui
+
+http://www.dartlang.org/docs/tutorials/
+http://www.dartlang.org/articles/web-ui/
+http://www.dartlang.org/articles/web-ui/spec.html
+http://www.dartlang.org/articles/web-ui/summary.html
+http://www.dartlang.org/docs/cookbook/#web-ui
+http://observables-articles.dart-lang.appspot.com/web-ui/observables/
+
+https://groups.google.com/a/dartlang.org/forum/?fromgroups#!topic/web-ui/-DTOmVPp_wk
+https://groups.google.com/a/dartlang.org/forum/?fromgroups#!topic/web-ui/ph-yFpzeTU4
+https://groups.google.com/a/dartlang.org/forum/?fromgroups#!topic/web-ui/91K9uvm6dOc
+https://groups.google.com/a/dartlang.org/forum/?fromgroups#!topic/web-ui/vQz2CKguGoY
+https://groups.google.com/a/dartlang.org/forum/?fromgroups#!topic/web-ui/L-HjsyW4q88
+
+https://plus.google.com/115816334172157652403/posts/dt2H4F2JmtZ
+
+-------------------
+
+Web UI and its data binding works best when you think about models populated with data. The flow can be something like:
+
+1) Create models, mark them with @observable
+2) Bind those models to your <template> elements and other custom elements.
+3) Load data with HttpRequest
+4) Populate models and collections with the data
+5) TA-DA! The view is automatically updated.
+
+Have you seen @observable? Have you seen the Web UI tutorials? http://www.dartlang.org/docs/tutorials/
+
+Thanks,
+Seth Ladd
+
+-------------------
+
+Dart's DOM of the future is here today!
+
+* Futures instead of callbacks
+* Streams instead of events
+* No more vendor prefixes
+* Web components
+* Live data binding
+* Real collections
+
+Learn more from Dart engineers +Emily Fortuna and +Sigmund Cherem in this talk from Google I/O.

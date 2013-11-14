@@ -1,0 +1,102 @@
+<polymer-element name="table-form">
+  <template>
+    <style>
+      h1 {
+        text-align: center;
+      }
+      #formContainer {
+        width: 500px;
+        border-width: 1px;
+        border-color: SlateBlue;
+        clear: left;
+        border-style: solid;
+      }
+      
+      .entry {
+        float: left;
+        padding: 3px 3px 3px 3px;
+        width: 100%;
+      }
+      
+      .entry label {
+        display: inline-block;
+        width: 150px;
+        text-align: right;
+        vertical-align: middle;
+      }
+      
+      label.andrews {
+        width:auto;
+      }
+      
+      .submitarea {
+        padding: 10px 10px 10px 10px;
+        margin: 10px 10px 10px 10px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: SlateBlue;
+        clear: left;
+      }
+      
+      .responsetext {
+        padding: 5px 10px 10px 10px;
+        margin: 10px 10px 10px 10px;
+        clear: left;
+        background-color: WhiteSmoke;
+        width: 90%;
+        height: 70px;
+        resize: none;
+      }
+    </style>
+      <form id="contactform">
+      
+        <div id="formContainer">
+          <h1>Contact's Form</h1>
+          <div class="entry">
+            <label>First name?</label>
+            <input type="text" id="fn" value="">
+          </div>
+          <div class="entry">
+            <label>Last name?</label>
+            <input type="text" id="ln" value="">
+          </div> 
+          <div class="entry">
+            <label>Phone?</label>
+            <input type="text" id="ph" value="">
+          </div>
+          <div class="entry">
+            <label>E-mail?</label>
+            <input type="text" id="em" value="">
+          </div>
+          <div id="submitarea">
+            <button id="add" on-click="{{addContact}}"></button>
+            <button id="clear" on-click="{{clearContactInfos}}"></button> <br> 
+            <label id="message"></label>   
+          </div>
+        </div>
+        
+      </form>
+      
+      <table>
+        <thead>
+          <tr><th>First Name</th><th>Last Name</th><th>Phone</th>
+          <th>E-mail</th><th>Edit or Delete</th></tr>
+        </thead>
+        <tbody>
+          <tr template repeat="{{contact in contacts.internalList}}">
+            <td>{{contact.firstName}}</td>
+            <td>{{contact.lastName}}</td>
+            <td>{{contact.phone}}</td>
+            <td>{{contact.email}}</td>
+            <td><button id="{{contact.lastName}}" title="{{contact.firstName}}" onclick="{{edit}}">Edit</button>
+            <button id="{{contact.lastName}}" title="{{contact.firstName}}" onclick="{{delete}}">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+      
+  </template>
+      
+    <script type="application/dart" src="polymer_contacts_table_form.dart"></script>
+</polymer-element>
+ 
+ 
