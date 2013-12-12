@@ -1,0 +1,70 @@
+<polymer-element name="poly-contacts">
+  <template>
+    <style>
+      form {
+        border: 6px solid #999;
+        border-style: inset;
+        width: 25%;
+        height: 200px;
+        position: relative;
+      }
+      
+      table {
+        border: 6px solid #999;
+        border-style: inset;
+        margin-top: 40px; 
+        width: 25%;
+        height: 150px;
+      }
+      
+      #buttonContainer {
+        border: 6px solid #999;
+        border-style: inset;
+        width: 72%;
+        height: 50px;
+        position: relative;
+        margin-left: 30px;
+        margin-top: 10px;
+      }
+      .button {
+        width: 30%;
+        height: 30px;
+        padding: 1px;
+        background: #ffcc99;
+        border: 6px solid #999;
+        border-style: inset;
+        border-color: #d7b9c9;
+        font-weight: bold;
+        text-align: center;
+        margin-left: 20px;
+        margin-right: 10px;
+        margin-top: 10px;
+      }
+    </style>
+    <form>
+      <h1>Contact's Form</h1>
+      <label for="name">Name</label>
+      <input id="name" type="text" required/>
+      <br/>
+      <label for="phone">Phone</label>
+      <input id="phone" type="text" required/>
+      <br/>
+      <label for="e_mail">E-mail</label>
+      <input id="e_mail" type="text" required/>
+      <br/>
+      <div id="buttonContainer">
+      <button on-click="{{add}}" class="button">Add</button>
+      <button on-click="{{clear}}" class="button">Clear</button>
+      </div>
+      <label id="message"></label>
+    </form>
+    <table border="1">
+      <tr><th>Contact's List</th><th>Modify?</th><th>Delete?</th></tr>
+      <template repeat="{{contact in contacts.internalList}}">
+        <tr><td>{{contact.name}}</td><td><button id="{{contact.name}}" on-click="{{modify}}">Modify</button></td>
+        <td><button id="{{contact.name}}" on-click="{{delete}}">Delete</button></td></tr>
+      </template> 
+    </table>
+  </template>
+  <script type="application/dart" src="poly_contacts.dart"></script>
+</polymer-element>

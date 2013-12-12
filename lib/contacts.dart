@@ -1,39 +1,36 @@
 library contacts;
 
 class Contact implements Comparable {
-  String firstName;
-  String lastName;
+  String name;
   String phone;
   String e_mail;
-  
-  Contact(this.firstName, this.lastName, this.phone, this.e_mail) {
+
+  Contact(this.name, this.phone, this.e_mail) {
   }
 
   Contact.fromJson(Map<String, Object> contactMap) {
-    firstName = contactMap['firstName'];
-    lastName = contactMap['firstName'];
+    name = contactMap['name'];
     phone = contactMap['phone'];
     e_mail = contactMap['e_mail'];
   }
 
   Map<String, Object> toJson() {
     var contactMap = new Map<String, Object>();
-    contactMap['firstName'] = firstName;
-    contactMap['lastName'] = lastName;
+    contactMap['name'] = name;
     contactMap['phone'] = phone;
     contactMap['e_mail'] = e_mail;
     return contactMap;
   }
-
+  
   String toString() {
-    return '{firstName: ${firstName}, lastName: ${lastName}, phone: ${phone}, e_mail: ${e_mail} }';
+    return '{name: ${name}, phone: ${phone}, e_mail: ${e_mail}}';
   }
 
   int compareTo(Contact contact) {
-    if (firstName != null && contact.firstName != null) {
-      return firstName.compareTo(contact.firstName);
+    if (name != null && contact.name != null) {
+      return name.compareTo(contact.name);
     } else {
-      throw new Exception('a contact first name must be present');
+      throw new Exception('a contact name must be present');
     }
   }
 }
@@ -49,18 +46,18 @@ class Contacts {
 
   bool add(Contact newContact) {
     if (newContact == null) {
-      throw new Exception('a new Contact must be present');
+      throw new Exception('a new contact must be present');
     }
     for (Contact contact in this) {
-      if (newContact.firstName == contact.firstName && newContact.lastName == contact.lastName) return false;
+      if (newContact.name == contact.name) return false;
     }
     _list.add(newContact);
     return true;
   }
 
-  Contact find(String name1, String name2) {
+  Contact find(String name) {
     for (Contact contact in _list) {
-      if (contact.firstName == name1 && contact.lastName == name2) return contact;
+      if (contact.name == name) return contact;
     }
     return null;
   }
@@ -76,7 +73,6 @@ class Contacts {
 
 class Model {
   var contacts = new Contacts();
-
   static Model model;
   Model.private();
   static Model get one {
@@ -88,9 +84,9 @@ class Model {
   // singleton
 
   init() {
-    var  contact1 = new Contact('Bob', 'Smith', '4182557151', 'bob@yahoo.fr');
-    var contact2 = new Contact('Alice', 'Johnson', '4182557878', 'alice@yahoo.fr');
-    var contact3 = new Contact('Thierry', ' Franck', '4182557189', 'thierry@yahoo.fr');
+    var contact1 = new Contact('Arlette Gounou', '418', 'arlette@hotmail.fr');
+    var contact2 = new Contact('Thierry Henri', '428', 'thierry@yahoo.fr');
+    var contact3 = new Contact('Joelle Perrier', '43898709009', 'joelle@yahoo.fr');
     Model.one.contacts..add(contact1)..add(contact2)..add(contact3);
   }
 
